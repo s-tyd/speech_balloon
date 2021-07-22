@@ -14,34 +14,19 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: const Text('example'),
         ),
         body: Center(
           child: SpeechBalloon(
-            height: 100,
-            width: 100,
-            nipHeight: 30,
-            // offset: Offset(120, 120),
+            height: 50,
+            width: 60,
             nipLocation: NipLocation.bottom,
-
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: const <Widget>[
-                Icon(
-                  Icons.favorite,
-                  color: Colors.white,
-                ),
-                Padding(
-                  padding: EdgeInsets.all(4),
-                ),
-                Text(
-                  '1',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                  ),
-                ),
-              ],
+            borderColor: Colors.red,
+            color: Colors.white,
+            // borderWidth: 5,
+            child: Icon(
+              Icons.favorite,
+              color: Colors.red,
             ),
           ),
         ),
