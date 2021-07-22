@@ -18,7 +18,7 @@ Dart Pub: https://pub.dartlang.org/packages/speech_balloon#-installing-tab-
    Add this to your package's pubspec.yaml file:
 
 ```dependencies:
-  speech_balloon: ^0.0.1
+  speech_balloon: ^0.0.3
 ```
 
 2. Install it
