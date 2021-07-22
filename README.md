@@ -18,7 +18,7 @@ Dart Pub: https://pub.dartlang.org/packages/speech_balloon#-installing-tab-
    Add this to your package's pubspec.yaml file:
 
 ```dependencies:
-  speech_balloon: ^0.0.3
+  speech_balloon: ^0.0.4
 ```
 
 2. Install it
@@ -45,8 +45,8 @@ Creates a widget that emulates a speech balloon.
 Could be used for a tooltip, or as a pop-up notification, etc.
 
 <div class="center">
-    <img width="350" height="621.25" src="screenshots/example1.png">
-  </div>
+ <img src="https://raw.githubusercontent.com/s-tyd/speech_balloon/master/screenshots/example1.png" alt="Example Project" />
+</div>
 
 
 # Example Code
