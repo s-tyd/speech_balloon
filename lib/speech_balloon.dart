@@ -16,20 +16,20 @@ enum NipLocation {
 const defaultNipHeight = 10.0;
 
 class SpeechBalloon extends StatelessWidget {
-  const SpeechBalloon(
-      {Key? key,
-      required this.child,
-      this.nipLocation = NipLocation.bottom,
-      this.color = Colors.white,
-      this.borderColor,
-      this.borderRadius = 4.0,
-      this.innerBorderRadius,
-      this.borderWidth = 2,
-      this.height = 50,
-      this.width = 50,
-      this.nipHeight = defaultNipHeight,
-      this.offset = Offset.zero})
-      : super(key: key);
+  const SpeechBalloon({
+    Key? key,
+    required this.child,
+    this.nipLocation = NipLocation.bottom,
+    this.color = Colors.white,
+    this.borderColor,
+    this.borderRadius = 2,
+    this.innerBorderRadius,
+    this.borderWidth = 2,
+    this.height = 50,
+    this.width = 60,
+    this.nipHeight = defaultNipHeight,
+    this.offset = Offset.zero,
+  }) : super(key: key);
 
   /// The [child] contained by the [SpeechBalloon]
   final Widget child;
@@ -85,33 +85,33 @@ class SpeechBalloon extends StatelessWidget {
     Offset? innerNipOffset;
     AlignmentGeometry? alignment;
     final vM = 0.9;
-    final hM = 0.8;
+    final hM = 1 - (borderWidth * 0.1);
 
     final rotatedNipHalfHeight = getNipHeight(nipHeight) / 2;
     final offset = nipHeight / 2 + rotatedNipHalfHeight;
     switch (nipLocation) {
       case NipLocation.top:
         final value = -offset + rotatedNipHalfHeight;
-        nipOffset = Offset(0, value);
-        innerNipOffset = Offset(0, value * vM);
+        nipOffset = this.offset + Offset(0, value);
+        innerNipOffset = this.offset + Offset(0, value * vM);
         alignment = Alignment.topCenter;
         break;
       case NipLocation.right:
         final value = offset - rotatedNipHalfHeight;
-        nipOffset = Offset(value, 0);
-        innerNipOffset = Offset(value * vM, 0);
+        nipOffset = this.offset + Offset(value, 0);
+        innerNipOffset = this.offset + Offset(value * vM, 0);
         alignment = Alignment.centerRight;
         break;
       case NipLocation.bottom:
         final value = offset - rotatedNipHalfHeight;
-        nipOffset = Offset(0, value);
-        innerNipOffset = Offset(0, value * vM);
+        nipOffset = this.offset + Offset(0, value);
+        innerNipOffset = this.offset + Offset(0, value * vM);
         alignment = Alignment.bottomCenter;
         break;
       case NipLocation.left:
         final value = -offset + rotatedNipHalfHeight;
-        nipOffset = Offset(value, 0);
-
+        nipOffset = this.offset + Offset(value, 0);
+        innerNipOffset = this.offset + Offset(value * vM, 0);
         alignment = Alignment.centerLeft;
         break;
       case NipLocation.bottomLeft:
@@ -157,7 +157,7 @@ class SpeechBalloon extends StatelessWidget {
         Stack(
           alignment: alignment,
           children: [
-            frontNip(innerNipOffset!),
+            frontNip(innerNipOffset),
             frontBalloon(),
           ],
         ),
@@ -166,11 +166,14 @@ class SpeechBalloon extends StatelessWidget {
   }
 
   Widget frontBalloon() {
-    late double innerHeight;
-    late double innerWidth;
-    innerHeight = height - borderWidth;
-    innerWidth = width - borderWidth;
-    final innerRadius = innerBorderRadius ?? borderRadius * 0.9;
+    late double innerHeight = height;
+    late double innerWidth = width;
+    late double innerRadius = borderRadius;
+    if (borderColor != null) {
+      innerHeight = height - borderWidth;
+      innerWidth = width - borderWidth;
+      innerRadius = innerBorderRadius ?? borderRadius * 0.9;
+    }
 
     return Material(
       borderRadius: BorderRadius.all(
