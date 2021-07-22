@@ -189,7 +189,6 @@ class SpeechBalloon extends StatelessWidget {
   }
 
   Widget frontNip(Offset nipOffset) {
-    print(nipOffset);
     return Transform.translate(
       offset: nipOffset,
       child: RotationTransition(
