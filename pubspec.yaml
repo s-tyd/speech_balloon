@@ -1,6 +1,6 @@
 name: speech_balloon
 description: "This is a flutter widget that generates a simple speech bubble. I based it on the SpeechBubble that was originally created. This widget can display simple speech bubbles and reproduce speech bubbles with a border."
-version: 0.0.1
+version: 0.0.2
 homepage: https://s-tyd.com
 repository: https://github.com/s-tyd/speech_balloon
 
