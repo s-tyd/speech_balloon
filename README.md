@@ -1,6 +1,4 @@
 # speech_balloon
-=======
-# speech_balloon
 
 A flutter widget that emulates a speech balloon.
 
@@ -47,7 +45,7 @@ Creates a widget that emulates a speech balloon.
 Could be used for a tooltip, or as a pop-up notification, etc.
 
 <div class="center">
-    <img width="359" height="693" src="screenshots/example1.png">
+    <img width="350" height="532.5" src="screenshots/example1.png">
   </div>
 
 
